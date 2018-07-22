@@ -1,5 +1,6 @@
 package com.retrofit_recyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -105,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {
                             Log.d(TAG, "onResponse: " + response.body());
+                            startActivity(new Intent(MainActivity.this, AsyncTaskActivity.class));
+                            finish();
                         } else {
                             Log.e(TAG, "onResponse: " + response.raw());
                         }
